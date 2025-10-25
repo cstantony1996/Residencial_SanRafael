@@ -1,0 +1,478 @@
+/* Reset y base */
+* { 
+        margin: 0; 
+        padding: 0; 
+        box-sizing: border-box; 
+}
+
+html, body { 
+        height: 100%; 
+}
+
+body {
+        font-family: 'Inter', Segoe UI, system-ui, -apple-system, Roboto, sans-serif;
+        background:
+                radial-gradient(1200px 800px at 10% 0%, rgba(124,77,255,.25), transparent 60%),
+                radial-gradient(1000px 700px at 90% 100%, rgba(58,160,255,.18), transparent 60%),
+                #0a0f1c;
+        color: #e6e8ee;
+        padding: 24px;
+}
+
+.container { 
+        max-width: 1320px; 
+        margin: 0 auto; 
+}
+
+/* Glass effect */
+.glass {
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.12);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px rgba(0,0,0,.35);
+        border-radius: 16px;
+}
+
+/* Header */
+.header { 
+        padding: 26px 28px; 
+        margin-bottom: 24px; 
+}
+
+.header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+}
+
+.header h1 {
+        font-size: 24px; 
+        font-weight: 700; 
+        letter-spacing: .3px; 
+        display: flex; 
+        gap: 10px; 
+        align-items: center;
+}
+
+.header h1 i { 
+        color: #3aa0ff; 
+}
+
+.header p { 
+        color: #b9c2d0; 
+        margin-top: 6px; 
+}
+
+/* Botón Glass de vuelta */
+.btn-glass-back {
+        position: relative;
+        padding: 16px 40px;
+        font-size: 17px;
+        font-weight: 600;
+        color: white;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        cursor: pointer;
+        backdrop-filter: blur(20px) saturate(180%);
+        transition: all 0.4s;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        overflow: hidden;
+        text-decoration: none;
+}
+
+.btn-glass-back::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(167, 139, 250, 0.3) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.5s;
+}
+
+.btn-glass-back:hover::before {
+        opacity: 1;
+        animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+}
+
+.btn-glass-back:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(167, 139, 250, 0.5);
+        box-shadow: 0 15px 50px rgba(167, 139, 250, 0.3);
+        transform: translateY(-3px);
+}
+
+.btn-glass-back .icon {
+        position: relative;
+        z-index: 1;
+        transition: transform 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+}
+
+.btn-glass-back .icon svg {
+        width: 24px;
+        height: 24px;
+        filter: drop-shadow(0 2px 4px rgba(167, 139, 250, 0.3));
+}
+
+.btn-glass-back .text {
+        position: relative;
+        z-index: 1;
+}
+
+.btn-glass-back:hover .icon {
+        transform: translateX(-5px);
+}
+
+.btn-glass-back:hover .icon svg {
+        filter: drop-shadow(0 0 10px rgba(167, 139, 250, 0.8));
+}
+
+/* Card principal */
+.card { 
+        padding: 24px; 
+}
+
+.card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.card-title {
+        font-size: 18px; 
+        font-weight: 600; 
+        display: flex; 
+        gap: 10px; 
+        align-items: center;
+}
+
+.card-title i { 
+        color: #7c4dff; 
+}
+
+/* Botón primario */
+.btn {
+        padding: 12px 16px; 
+        border: none; 
+        border-radius: 12px; 
+        font-weight: 600; 
+        cursor: pointer;
+        color: #eafff4; 
+        transition: transform .15s ease, box-shadow .2s ease; 
+        display: flex; 
+        gap: 8px; 
+        align-items: center; 
+        justify-content: center;
+        text-decoration: none;
+}
+
+.btn-primary {
+        background: linear-gradient(135deg, #32d475, #0aa05a);
+}
+
+.btn-primary:hover { 
+        transform: translateY(-1px); 
+        box-shadow: 0 10px 25px rgba(10,160,90,.35); 
+}
+
+/* Stats bar */
+.stats-bar {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 20px;
+        padding: 14px 18px;
+        background: rgba(255,255,255,.04);
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,.08);
+}
+
+.stat-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #b9c2d0;
+        font-size: 14px;
+}
+
+.stat-item i {
+        color: #7c4dff;
+}
+
+.stat-item strong {
+        color: #e6e8ee;
+        font-weight: 600;
+}
+
+/* Tabla */
+.table-wrapper {
+        margin-bottom: 20px;
+}
+
+.package-table { 
+        width: 100%; 
+        border-collapse: separate; 
+        border-spacing: 0 8px; 
+}
+
+.package-table thead th {
+        background: rgba(255,255,255,.06); 
+        color: #b9c2d0;
+        padding: 12px 14px; 
+        text-align: left; 
+        font-size: 12px; 
+        letter-spacing: .4px; 
+        text-transform: uppercase;
+}
+
+.package-table thead th:first-child { 
+        border-radius: 10px 0 0 10px; 
+}
+
+.package-table thead th:last-child { 
+        border-radius: 0 10px 10px 0; 
+}
+
+.package-table tbody tr {
+        background: rgba(255,255,255,.05); 
+        transition: .2s ease;
+}
+
+.package-table tbody tr:hover { 
+        background: rgba(255,255,255,.09); 
+        transform: scale(1.01); 
+}
+
+.package-table tbody td {
+        padding: 14px; 
+        color: #e6e8ee; 
+        font-size: 14px;
+        border-top: 1px solid rgba(255,255,255,.12);
+        border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.package-table tbody td:first-child {
+        border-left: 1px solid rgba(255,255,255,.12);
+        border-radius: 10px 0 0 10px; 
+        font-weight: 600;
+}
+
+.package-table tbody td:last-child {
+        border-right: 1px solid rgba(255,255,255,.12);
+        border-radius: 0 10px 10px 0;
+}
+
+.text-right {
+        text-align: right;
+}
+
+.amount {
+        color: #32d475;
+        font-weight: 600;
+}
+
+.obs-text {
+        color: #b9c2d0;
+}
+
+/* Empty state */
+.empty-state { 
+        text-align: center; 
+        padding: 54px 14px; 
+        color: #b9c2d0; 
+}
+
+.empty-state i { 
+        font-size: 56px; 
+        color: #6b7280; 
+        margin-bottom: 10px; 
+}
+
+.empty-state h3 { 
+        font-size: 18px; 
+        color: #e6e8ee; 
+        margin-bottom: 6px; 
+}
+
+/* Paginación */
+.pagination {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255,255,255,.12);
+        gap: 16px;
+}
+
+.pagination-info {
+        color: #b9c2d0;
+        font-size: 14px;
+}
+
+.pagination-info .sep {
+        margin: 0 8px;
+        opacity: 0.5;
+}
+
+.pagination-controls {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+}
+
+.size-form {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+}
+
+.size-form label {
+        color: #b9c2d0;
+        font-size: 14px;
+}
+
+.size-form select {
+        padding: 8px 12px; 
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,.18);
+        background: rgba(255,255,255,.05);
+        color: #e6e8ee; 
+        outline: none; 
+        transition: .2s ease;
+        cursor: pointer;
+}
+
+.size-form select:focus {
+        box-shadow: 0 0 0 3px rgba(124,77,255,.25);
+        border-color: rgba(124,77,255,.55);
+}
+
+.page-btns {
+        display: flex;
+        gap: 6px;
+}
+
+.page-btn {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,.05);
+        border: 1px solid rgba(255,255,255,.12);
+        border-radius: 10px;
+        color: #e6e8ee;
+        text-decoration: none;
+        transition: .2s ease;
+        cursor: pointer;
+}
+
+.page-btn:hover:not(.disabled) {
+        background: rgba(255,255,255,.09);
+        border-color: rgba(124,77,255,.55);
+        transform: translateY(-1px);
+}
+
+.page-btn.disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+        pointer-events: none;
+}
+
+.page-btn i {
+        font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+        .header-row {
+                flex-direction: column;
+                align-items: flex-start;
+        }
+
+        .btn-glass-back {
+                width: 100%;
+                justify-content: center;
+        }
+
+        .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+        }
+
+        .btn-primary {
+                width: 100%;
+        }
+
+        .stats-bar {
+                flex-direction: column;
+                gap: 10px;
+        }
+
+        .pagination {
+                flex-direction: column;
+                align-items: flex-start;
+        }
+
+        .pagination-controls {
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+        }
+
+        .size-form {
+                width: 100%;
+        }
+
+        .page-btns {
+                width: 100%;
+                justify-content: space-between;
+        }
+}
+
+@media (max-width: 640px) {
+        body {
+                padding: 16px;
+        }
+
+        .header {
+                padding: 20px;
+        }
+
+        .header h1 {
+                font-size: 20px;
+        }
+
+        .card {
+                padding: 18px;
+        }
+
+        .package-table {
+                font-size: 12px;
+        }
+
+        .package-table tbody td,
+        .package-table thead th {
+                padding: 10px;
+        }
+}

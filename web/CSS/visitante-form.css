@@ -1,0 +1,115 @@
+/* ===== Fondo y contenedor ===== */
+body{
+    margin:0;
+    background:
+        radial-gradient(800px 320px at 10% 20%, rgba(139,92,246,.18), transparent 60%),
+        radial-gradient(700px 380px at 90% 80%, rgba(37,99,235,.16), transparent 60%),
+        linear-gradient(180deg, #0b1220, #0a0f1c);
+    color:#e5e7eb;
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;
+}
+.wrap{ max-width:980px; margin:28px auto; padding:12px }
+.card{
+    background: rgba(15,23,42,.65);
+    border:1px solid rgba(148,163,184,.18);
+    border-radius:18px;
+    padding:16px;
+    box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    backdrop-filter: blur(8px);
+}
+
+/* ===== Header dentro de la tarjeta ===== */
+.card-head{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:10px;
+    flex-wrap:wrap; /* responsive */
+}
+.title{
+    font-size:22px; font-weight:800; margin:0 0 6px;
+    background: linear-gradient(90deg,#93c5fd,#c4b5fd,#ffffff);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.subtitle{ color:#94a3b8; font-size:13px; margin:0 }
+
+/* ===== Inputs y layout ===== */
+.grid{ display:grid; grid-template-columns: repeat(2, minmax(260px,1fr)); gap:14px }
+@media (max-width: 720px){ .grid{ grid-template-columns: 1fr } }
+
+.field{ display:flex; flex-direction:column }
+.label{ font-weight:700; margin-bottom:6px; color:#cbd5e1 }
+.label.required::after{ content:" *"; color:#ef4444 }
+
+.input-group{ position:relative; display:flex; align-items:center }
+.input{ width:100%; padding:12px 12px 12px 40px; border-radius:12px; border:1px solid rgba(148,163,184,.22); background:#0b1224; color:#e5e7eb; outline:none; }
+.select{ width:100%; padding:12px 12px 12px 40px; border-radius:12px; border:1px solid rgba(148,163,184,.22); background:#0b1224; color:#e5e7eb; outline:none; }
+.input:focus, .select:focus{ box-shadow:0 0 0 3px rgba(37,99,235,.25); border-color:#1e40af; }
+.input-icon{ position:absolute; left:10px; opacity:.8 }
+.hint{ color:#94a3b8; font-size:12px; margin-top:4px }
+
+.row-actions{ display:flex; gap:10px; align-items:center; margin-top:12px; flex-wrap:wrap }
+
+/* ===== Botones ===== */
+.btn{
+    padding:10px 14px; border-radius:12px; border:1px solid rgba(148,163,184,.22);
+    background:#0b1224; color:#e5e7eb; cursor:pointer; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px; transition:.2s transform,.2s box-shadow,.2s filter;
+    position:relative; overflow:hidden;
+}
+.btn::before{
+    content:""; position:absolute; inset:0; transform:translateX(-120%);
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent); transition: transform .6s;
+}
+.btn:hover{ transform: translateY(-1px) }
+.btn:hover::before{ transform:translateX(120%) }
+
+/* Botón principal – azul */
+.btn-primary{
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: #ffffff;
+    border: 1px solid #1e3a8a;
+    font-weight: 800;
+    box-shadow: 0 4px 14px rgba(59,130,246,.40);
+}
+
+.btn-primary:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(59,130,246,.60);
+}
+
+.btn-primary:active{
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(59,130,246,.50);
+}
+
+.btn-primary:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
+    box-shadow:none;
+}
+
+.btn-ghost{ background: rgba(148,163,184,.08); color:#e5e7eb; }
+
+/* 👇 Botón “Regresar” bonito */
+.btn-back{
+    background: linear-gradient(135deg, #1f2937 0%, #0b1224 100%);
+    border:1px solid rgba(148,163,184,.28);
+    color:#e5e7eb;
+    box-shadow: 0 8px 18px rgba(0,0,0,.28);
+}
+.btn-back:hover{ filter:brightness(1.06); }
+
+/* ===== Alertas ===== */
+.alert{
+    display:flex; gap:10px; align-items:flex-start;
+    border-radius:12px; padding:12px; margin:10px 0; border-left:4px solid;
+    background: rgba(15,23,42,.4); border-color: rgba(148,163,184,.22);
+}
+.alert.success{ background: rgba(16,185,129,.12); border-left-color:#10b981; }
+.alert.error{ background: rgba(239,68,68,.12); border-left-color:#ef4444; }
+
+/* Utilidades */
+.muted{ color:#94a3b8; font-size:12px }

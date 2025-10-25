@@ -1,0 +1,320 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #0a0f1c;
+}
+
+body {
+    color: #e5e7eb;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    background:
+        radial-gradient(800px 320px at 10% 20%, rgba(139,92,246,.18), transparent 60%),
+        radial-gradient(700px 380px at 90% 80%, rgba(37,99,235,.16), transparent 60%),
+        linear-gradient(180deg, #0b1220, #0a0f1c);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.usrf-wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 18px 14px;
+    box-sizing: border-box;
+    flex: 1;
+    width: 100%;
+}
+
+/* Header con "glass" */
+.usrf-header {
+    background: rgba(15,23,42,.55);
+    border: 1px solid rgba(148,163,184,.18);
+    border-radius: 18px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    backdrop-filter: blur(8px);
+    margin-bottom: 14px;
+}
+
+.hdr-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.hdr-badge {
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-size: 18px;
+    background: radial-gradient(circle at 30% 30%, #93c5fd, #8b5cf6);
+    box-shadow: 0 8px 20px rgba(139,92,246,.45), inset 0 0 10px rgba(255,255,255,.15);
+}
+
+.hdr-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: .2px;
+}
+
+.hdr-sub {
+    margin: 2px 0 0;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.hdr-right {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+}
+
+/* Botones */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(148,163,184,.22);
+    background: #0b1224;
+    color: #e5e7eb;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .2s transform, .2s filter;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-120%);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+    transition: transform .6s;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn:hover::before {
+    transform: translateX(120%);
+}
+
+.btn-back {
+    background: rgba(148,163,184,.08);
+    color: #e5e7eb;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    border-color: #1e40af;
+    color: #fff;
+    font-weight: 800;
+    box-shadow: 0 10px 24px rgba(59,130,246,.35);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+    color: #fff;
+    border-color: #334155;
+}
+
+.loading {
+    pointer-events: none;
+    opacity: .85;
+}
+
+/* Card centrada y angosta (evita "franjas" gigantes) */
+.usrf-card {
+    background: rgba(17,24,39,.75);
+    border: 1px solid rgba(148,163,184,.18);
+    border-radius: 18px;
+    box-shadow: 0 16px 36px rgba(0,0,0,.35);
+    backdrop-filter: blur(6px);
+    padding: 18px;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* Campos (UNA COLUMNA) */
+.field {
+    display: flex;
+    flex-direction: column;
+    margin: 12px 0;
+}
+
+.label {
+    font-weight: 800;
+    margin-bottom: 6px;
+    color: #e5e7eb;
+    letter-spacing: .2px;
+}
+
+.req {
+    color: #ef4444;
+    margin-left: 4px;
+}
+
+.hint {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+/* Grupo con icono dentro del input */
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-size: 16px;
+    background: radial-gradient(circle at 30% 30%, #93c5fd, #8b5cf6);
+    box-shadow: 0 10px 20px rgba(139,92,246,.35);
+}
+
+.input, .select {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    outline: 0;
+    border: 1px solid rgba(148,163,184,.22);
+    background: #0b1224;
+    color: #e5e7eb;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.input:focus, .select:focus {
+    border-color: #1e40af;
+    box-shadow: 0 0 0 3px rgba(59,130,246,.25);
+}
+
+/* Acciones */
+.form-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(148,163,184,.18);
+    padding-top: 14px;
+    margin-top: 6px;
+}
+
+/* Alertas */
+.alert {
+    margin: 12px 0;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border-left: 4px solid;
+    background: rgba(15,23,42,.6);
+    backdrop-filter: blur(6px);
+}
+
+.alert-success {
+    border-left-color: #10b981;
+    color: #6ee7b7;
+}
+
+.alert-danger {
+    border-left-color: #ef4444;
+    color: #fca5a5;
+}
+
+/* Footer para evitar la franja gris */
+.app-footer {
+    text-align: center;
+    padding: 10px;
+    color: #94a3b8;
+    font-size: 12px;
+    background: rgba(15,23,42,.55);
+    border-top: 1px solid rgba(148,163,184,.18);
+    margin-top: auto;
+}
+
+/* Responsive (sigue 1 columna) */
+@media (max-width: 640px) {
+    .usrf-wrap {
+        padding: 14px 10px;
+    }
+
+    .usrf-card {
+        padding: 14px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* === Fix: quitar franja/pie gris y la línea sobre acciones === */
+.app-footer{
+    display:none !important;
+    padding:0 !important;
+    border:0 !important;
+    height:0 !important;
+}
+
+.form-actions{
+    border-top: 0 !important;   /* quita la línea gris sobre los botones */
+}
+
+/* Por si aparecía por scroll horizontal */
+body{ overflow-x: hidden !important; }
+
+/* === Quitar por completo la franja gris del fondo === */
+
+/* 1) Oculta cualquier footer o barra pegada al fondo */
+.app-footer,
+footer,
+.footer,
+.footer-bar{
+    display:none !important;
+    height:0 !important;
+    padding:0 !important;
+    margin:0 !important;
+    border:0 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+}
+
+/* 2) Evita barras internas y scrolls raros en la tarjeta */
+.usrf-wrap,
+.usrf-card{
+    overflow: visible !important;
+}
+
+/* 3) Si la “franja” venía del sombreado de la tarjeta, suavízalo */
+.usrf-card{
+    box-shadow: 0 8px 18px rgba(0,0,0,.28) !important; /* o quítalo con: none */
+}
+
+/* 4) Nada de scroll horizontal (que a veces pinta una barra) */
+html, body{ overflow-x: hidden !important; }
+
+/* 5) Fondo uniforme hasta el borde del viewport */
+html{ background:#0a0f1c !important; }

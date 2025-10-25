@@ -1,0 +1,174 @@
+/* ===== Login – tema oscuro azul/púrpura con glass y animaciones (sin variables) ===== */
+
+/* Fondo */
+body{
+    margin:0;
+    min-height:100vh;
+    color:#e5e7eb;
+    background:
+        radial-gradient(800px 320px at 10% 20%, rgba(139,92,246,.18), transparent 60%),
+        radial-gradient(700px 380px at 90% 80%, rgba(37,99,235,.16), transparent 60%),
+        linear-gradient(180deg, #0b1220, #0a0f1c);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+/* Centrado */
+.login-screen{
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    padding:24px;
+}
+
+/* Card de dos paneles */
+.auth-card{
+    width:min(1040px, 95vw);
+    background:rgba(15,23,42,.65);
+    border:1px solid rgba(148,163,184,.16);
+    border-radius:22px;
+    box-shadow: 0 25px 60px rgba(0,0,0,.45);
+    backdrop-filter: blur(10px);
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    overflow:hidden;
+}
+
+/* Panel izquierdo (hero) */
+.hero{
+    position:relative;
+    padding:44px 40px;
+    background:
+        radial-gradient(1200px 520px at -10% -20%, rgba(139,92,246,.28), transparent 60%),
+        radial-gradient(900px 520px at 120% 120%, rgba(37,99,235,.28), transparent 60%),
+        linear-gradient(135deg, rgba(15,23,42,.85), rgba(15,23,42,.65));
+}
+.hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:
+        radial-gradient(120px 60px at 20% 25%, rgba(255,255,255,.06), transparent 60%),
+        radial-gradient(180px 80px at 70% 65%, rgba(255,255,255,.05), transparent 60%),
+        conic-gradient(from 0deg at 50% 50%, rgba(255,255,255,.04), transparent 25% 50%, rgba(255,255,255,.04) 75% 100%);
+    mix-blend-mode: overlay;
+    pointer-events:none;
+}
+.hero-logo{
+    width:70px; height:70px; border-radius:999px;
+    display:grid; place-items:center; margin-bottom:16px;
+    color:#fff; font-size:30px;
+    background: radial-gradient(circle at 30% 30%, #93c5fd, #8b5cf6);
+    box-shadow: 0 12px 30px rgba(139,92,246,.45), inset 0 0 12px rgba(255,255,255,.2);
+    animation: float 6s ease-in-out infinite;
+}
+@keyframes float{
+    0%,100%{ transform: translateY(0) }
+    50%{ transform: translateY(-6px) }
+}
+.hero-title{
+    margin:6px 0 6px;
+    font-size:32px; line-height:1.15; font-weight:800;
+    background: linear-gradient(90deg,#93c5fd 0%, #c4b5fd 60%, #ffffff 100%);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+.hero-sub{ color:#94a3b8; margin:0 0 18px; }
+.hero-points{ list-style:none; padding:0; margin:8px 0 0; color:#cbd5e1 }
+.hero-points li{ margin:10px 0; display:flex; gap:10px; align-items:center }
+.hero-points i{ color:#a78bfa }
+
+/* Panel derecho (form) */
+.form-side{
+    padding:36px 34px 28px;
+    display:flex; flex-direction:column;
+    background: rgba(2,6,23,.55);
+}
+.form-title{ margin:4px 0 2px; font-weight:800; letter-spacing:.2px }
+.form-sub{ margin:0 0 16px; color:#94a3b8 }
+
+/* Alertas */
+.alert{
+    padding:12px 14px; border-radius:12px; margin:8px 0 16px;
+    display:flex; gap:10px; align-items:flex-start; border-left:4px solid;
+    backdrop-filter: blur(4px);
+}
+.alert.error{ 
+    background: rgba(239,68,68,.12); color:#fecaca; border-left-color:#ef4444;
+    box-shadow: 0 8px 20px rgba(239,68,68,.18);
+}
+
+/* Campos */
+.field{ display:block; margin-bottom:14px }
+.label{ display:block; margin:0 0 6px; color:#cbd5e1; font-weight:600; font-size:13px }
+.input-group{
+    position:relative; display:flex; align-items:center;
+    background: #0b1326; border:1px solid rgba(148,163,184,.22);
+    border-radius:12px; padding: 0 10px 0 38px;
+    transition:.2s border-color, .2s box-shadow, .2s transform;
+}
+.input-group:focus-within{
+    border-color:#2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,.25);
+    transform: translateY(-1px);
+}
+.input-icon{
+    position:absolute; left:12px; color:#9aa4b2; font-size:14px;
+}
+.input{
+    appearance:none; width:100%; padding:12px 10px; border:0; background:transparent;
+    color:#e5e7eb; outline:none; font-size:14px;
+}
+.icon-btn{
+    border:0; background:transparent; color:#9aa4b2; cursor:pointer; padding:6px 4px; margin-left:6px;
+}
+.icon-btn:hover{ color:#d1d5db }
+
+/* Row inferior */
+.form-row{ display:flex; justify-content:space-between; align-items:center; margin:4px 0 12px }
+.check{ display:inline-flex; gap:8px; align-items:center; color:#cbd5e1; font-size:13px }
+.check input{ accent-color:#2563eb }
+.link{ color:#a5b4fc; text-decoration:none; font-size:13px }
+.link:hover{ text-decoration:underline }
+
+/* Botones */
+.btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:12px 16px; border-radius:12px; border:1px solid rgba(148,163,184,.22);
+    cursor:pointer; font-weight:700; letter-spacing:.2px; transition:.2s transform, .2s box-shadow;
+    text-decoration:none; color:#e5e7eb; background:#0b1224;
+    position:relative; overflow:hidden;
+}
+.btn::before{
+    content:""; position:absolute; inset:0; transform:translateX(-120%);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+    transition: transform .6s;
+}
+.btn:hover{ transform: translateY(-1px) }
+.btn:hover::before{ transform:translateX(120%) }
+
+.btn-primary{
+    background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%);
+    border-color:#1e40af;
+    color:#fff;
+    box-shadow: 0 12px 30px rgba(37,99,235,.35);
+}
+.btn-ghost{
+    background: rgba(148,163,184,.08);
+}
+
+/* Divider */
+.divider{ display:flex; align-items:center; gap:10px; margin:12px 0 }
+.divider::before, .divider::after{
+    content:""; flex:1; height:1px; background: rgba(148,163,184,.18);
+}
+.divider span{ color:#94a3b8; font-size:12px }
+
+/* Legal */
+.legal{ margin-top:14px; color:#94a3b8; text-align:center }
+
+/* Responsivo */
+@media (max-width: 940px){
+    .auth-card{ grid-template-columns: 1fr }
+    .hero{ display:none }
+}
+@media (max-width: 480px){
+    .form-side{ padding:26px 18px }
+}

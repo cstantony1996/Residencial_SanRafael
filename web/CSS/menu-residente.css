@@ -1,0 +1,329 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #0a0f1c;
+}
+
+body {
+    color: #e5e7eb;
+    background:
+        radial-gradient(800px 320px at 10% 20%, rgba(139,92,246,.18), transparent 60%),
+        radial-gradient(700px 380px at 90% 80%, rgba(37,99,235,.16), transparent 60%),
+        linear-gradient(180deg, #0b1220, #0a0f1c);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    overflow: hidden; /* Evita scroll no deseado */
+}
+
+/* Contenedor principal - CORREGIDO */
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+    height: 100vh; /* Cambiado de min-height a height */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box; /* Incluye padding en la altura */
+}
+
+/* Header */
+.hero {
+    background: rgba(15,23,42,.55);
+    border: 1px solid rgba(148,163,184,.18);
+    border-radius: 18px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    backdrop-filter: blur(8px);
+    margin-bottom: 8px;
+}
+
+.hero-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.hero-badge {
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-size: 18px;
+    background: radial-gradient(circle at 30% 30%, #93c5fd, #8b5cf6);
+    box-shadow: 0 8px 20px rgba(139,92,246,.45), inset 0 0 10px rgba(255,255,255,.15);
+}
+
+/* Botonera del header (derecha) */
+.hero-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+}
+
+/* Botón rojo Salir */
+.btn-danger{
+    background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+    border-color:#7f1d1d;
+    color:#fff;
+    font-weight:800;
+}
+
+.btn-danger:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: .2px;
+}
+
+.title .gradient {
+    background: linear-gradient(90deg, #93c5fd, #c4b5fd, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    margin: 2px 0 0;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+/* Botones genéricos */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(148,163,184,.22);
+    background: #0b1224;
+    color: #e5e7eb;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .2s transform, .2s box-shadow, .2s filter;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-120%);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+    transition: transform .6s;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn:hover::before {
+    transform: translateX(120%);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    border-color: #14532d;
+    color: #052e14;
+    font-weight: 800;
+    box-shadow: 0 10px 24px rgba(22,163,74,.35);
+}
+
+.btn-secondary {
+    background: rgba(148,163,184,.08);
+    color: #e5e7eb;
+}
+
+/* === GRID CENTRADO – 3 columnas, sin scroll en desktop === */
+.card-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 320px);
+    grid-auto-rows: 240px;
+    gap: 20px 24px;
+    justify-content: center;
+    align-content: center;
+    padding: 8px 0 0;
+    overflow: hidden; /* Previene desbordamiento */
+}
+
+/* Tarjeta */
+.card {
+    position: relative;
+    background: rgba(15,23,42,.65);
+    border: 1px solid rgba(148,163,184,.18);
+    border-radius: 18px;
+    box-shadow: 0 16px 36px rgba(0,0,0,.35);
+    backdrop-filter: blur(6px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.card-accent {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .45;
+    background:
+        radial-gradient(200px 110px at -10% -10%, rgba(139,92,246,.18), transparent 60%),
+        radial-gradient(200px 110px at 120% 120%, rgba(37,99,235,.20), transparent 60%);
+}
+
+.card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 8px;
+    color: #fff;
+    font-size: 18px;
+    background: radial-gradient(circle at 30% 30%, #93c5fd, #8b5cf6);
+    box-shadow: 0 10px 20px rgba(139,92,246,.35);
+}
+
+.card-title {
+    margin: 0 0 6px;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: .2px;
+}
+
+.card-text {
+    margin: 0 0 10px;
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+.card .btn {
+    margin-top: auto;
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 1120px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 320px);
+    }
+}
+
+@media (max-width: 740px) {
+    /* En móvil permitimos scroll */
+    body {
+        overflow: auto;
+    }
+
+    .dashboard {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .card-grid {
+        grid-template-columns: minmax(260px, 1fr);
+        grid-auto-rows: 240px;
+        align-content: start;
+        padding-bottom: 16px;
+    }
+}
+
+/* ===== Skeleton para menús (tema oscuro morado/azul) ===== */
+.page-skeleton-overlay{
+  position: fixed; inset: 0; z-index: 9999;
+  display: grid; place-items: center; padding: 20px;
+  background: #0a0f1c;
+  background:
+    radial-gradient(760px 320px at 12% 10%, rgba(139,92,246,.20), transparent 60%),
+    radial-gradient(720px 340px at 88% 90%, rgba(37,99,235,.18), transparent 60%),
+    linear-gradient(180deg,#0b1220,#0a0f1c);
+}
+
+.page-skeleton-container{ width: 100%; max-width: 1200px; }
+
+.skeleton-header{ text-align:center; margin: 0 0 24px; }
+.skeleton-title{
+  height: 28px; max-width: 280px; margin: 0 auto 10px; border-radius: 8px;
+  background: linear-gradient(90deg,#1f2937 25%,#374151 50%,#1f2937 75%);
+  background-size: 200% 100%; animation: skeleton-loading 1.3s ease-in-out infinite;
+}
+.skeleton-subtitle{
+  height: 14px; max-width: 380px; margin: 0 auto; border-radius: 6px;
+  background: linear-gradient(90deg,#1f2937 25%,#374151 50%,#1f2937 75%);
+  background-size: 200% 100%; animation: skeleton-loading 1.3s ease-in-out infinite .1s;
+}
+
+.skeleton-cards-grid{
+  display: grid; gap: 18px;
+  grid-template-columns: repeat(3, 320px); /* igual que tu grid real */
+  justify-content: center;
+}
+
+.skeleton-card{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 16px; padding: 16px;
+  box-shadow: 0 16px 36px rgba(0,0,0,.35);
+  backdrop-filter: blur(8px);
+}
+
+.skeleton-card-header{
+  display: flex; align-items: center; gap: 12px;
+  padding-bottom: 12px; margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.skeleton-icon{
+  width: 42px; height: 42px; border-radius: 12px;
+  background: linear-gradient(90deg,#1f2937 25%,#374151 50%,#1f2937 75%);
+  background-size: 200% 100%; animation: skeleton-loading 1.3s ease-in-out infinite;
+}
+
+.skeleton-text{
+  flex: 1; height: 18px; border-radius: 6px;
+  background: linear-gradient(90deg,#1f2937 25%,#374151 50%,#1f2937 75%);
+  background-size: 200% 100%; animation: skeleton-loading 1.3s ease-in-out infinite .05s;
+}
+
+.skeleton-line{
+  height: 44px; border-radius: 12px; margin-bottom: 12px;
+  background: linear-gradient(90deg,#1f2937 25%,#374151 50%,#1f2937 75%);
+  background-size: 200% 100%; animation: skeleton-loading 1.3s ease-in-out infinite .08s;
+}
+.skeleton-line.short{ max-width: 60%; }
+
+.skeleton-button{
+  height: 50px; border-radius: 12px;
+  background: linear-gradient(90deg,#1f2937 25%,#374151 50%,#1f2937 75%);
+  background-size: 200% 100%; animation: skeleton-loading 1.3s ease-in-out infinite .12s;
+}
+
+@keyframes skeleton-loading{
+  0%{ background-position: 200% 0; }
+  100%{ background-position: -200% 0; }
+}
+
+/* Ocultar skeleton con fade */
+.fade-out{ animation: fadeOut .35s ease forwards; }
+@keyframes fadeOut{ from{opacity:1} to{opacity:0;visibility:hidden} }
+
+/* Responsive igual que tus menús */
+@media (max-width: 1120px){
+  .skeleton-cards-grid{ grid-template-columns: repeat(2, 320px); }
+}
+@media (max-width: 740px){
+  .skeleton-cards-grid{ grid-template-columns: minmax(260px,1fr); }
+}
